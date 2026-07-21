@@ -2,7 +2,7 @@
   "manifestVersion": 1,
   "key": "commerce_marketplace",
   "name": "Marketplace",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Create and publish a product storefront from SkaiCloud Website Studio.",
   "compatibility": {
     "minimumBuild": 6000,
@@ -67,7 +67,7 @@
       }
     ],
     "publisher": "SkaiCloud Network LLC",
-    "checksum": "sha256:674fbb947effc95b49decd501505f9f13d5744def21c0003bd0ced9e8d852fde",
+    "checksum": "sha256:cee954970c94f909b55b2f50caf468f96de8bb1b77642e303c4f7fe70a96c064",
     "signature": "package/SIGNATURE.txt",
     "runtime": {
       "mode": "sandboxed-iframe",
