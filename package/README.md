@@ -10,4 +10,7 @@ SkaiCloud Marketplace provides a host-isolated seller workspace and public produ
 - Product images: host-managed module media storage
 - Required module: `website`
 
-Checkout and Stripe transactions are intentionally excluded from version 0.1.0.
+The included browser adapter uses module-scoped `localStorage` for install dry-runs. A signed
+platform runtime must replace that adapter with the host `products` resource and media storage
+before production use. Checkout and Stripe transactions remain platform-owned and are excluded
+from version 0.1.0.
