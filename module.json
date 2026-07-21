@@ -33,7 +33,9 @@
     "moduleRestore": false
   },
   "dependencies": {
-    "moduleKeys": ["website"]
+    "moduleKeys": [
+      "website"
+    ]
   },
   "package": {
     "routeEntry": "package/routes/marketplace.ts",
@@ -65,7 +67,7 @@
       }
     ],
     "publisher": "SkaiCloud Network LLC",
-    "checksum": "sha256:pending",
+    "checksum": "sha256:674fbb947effc95b49decd501505f9f13d5744def21c0003bd0ced9e8d852fde",
     "signature": "package/SIGNATURE.txt",
     "runtime": {
       "mode": "sandboxed-iframe",
