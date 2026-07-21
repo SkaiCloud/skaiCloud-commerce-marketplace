@@ -2,7 +2,7 @@
   "manifestVersion": 1,
   "key": "commerce_marketplace",
   "name": "Marketplace",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Create and publish a product storefront from SkaiCloud Website Studio.",
   "compatibility": {
     "minimumBuild": 6000,
@@ -40,7 +40,7 @@
   "package": {
     "routeEntry": "package/routes/marketplace.ts",
     "componentEntry": "package/components/Marketplace.tsx",
-    "backupStrategy": "host-managed",
+    "backupStrategy": "database-and-files",
     "rollbackStrategy": "disable-only",
     "requiredEnv": [],
     "postInstallChecks": [
