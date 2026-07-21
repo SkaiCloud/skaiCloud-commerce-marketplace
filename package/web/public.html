@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="light">
+    <title>Marketplace</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="public-body">
+    <main class="catalog-shell">
+      <header class="catalog-header">
+        <div><p class="eyebrow">Shop online</p><h1>Marketplace</h1></div>
+        <label class="catalog-search"><span aria-hidden="true">⌕</span><input id="catalog-search" type="search" placeholder="Search products"></label>
+      </header>
+      <nav id="catalog-categories" class="catalog-categories" aria-label="Product categories"></nav>
+      <div class="catalog-meta"><strong id="catalog-count">0 products</strong><select id="catalog-sort" aria-label="Sort products"><option value="featured">Featured</option><option value="newest">Newest</option><option value="price-low">Price: low to high</option><option value="price-high">Price: high to low</option></select></div>
+      <section id="catalog-grid" class="catalog-grid" aria-live="polite"></section>
+    </main>
+    <section id="product-detail" class="detail-overlay hidden" aria-hidden="true">
+      <button id="detail-backdrop" class="detail-backdrop" type="button" aria-label="Close product details"></button>
+      <article class="detail-panel">
+        <button id="detail-close" class="icon-button detail-close" type="button" title="Close" aria-label="Close product details">×</button>
+        <div id="detail-images" class="detail-images"></div>
+        <div class="detail-copy"><p id="detail-category" class="eyebrow"></p><h2 id="detail-name"></h2><p id="detail-price" class="detail-price"></p><p id="detail-description" class="detail-description"></p><div class="detail-facts"><span id="detail-sku"></span><strong id="detail-stock"></strong></div></div>
+      </article>
+    </section>
+    <script src="public.js"></script>
+  </body>
+</html>

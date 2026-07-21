@@ -1,0 +1,86 @@
+{
+  "manifestVersion": 1,
+  "key": "commerce_marketplace",
+  "name": "Marketplace",
+  "version": "0.1.0",
+  "description": "Create and publish a product storefront from SkaiCloud Website Studio.",
+  "compatibility": {
+    "minimumBuild": 6000,
+    "moduleApiVersion": 1
+  },
+  "navigation": {
+    "label": "Storefront",
+    "path": "/dashboard/storefront",
+    "category": "records",
+    "icon": "briefcase",
+    "showInNavigation": true
+  },
+  "permissions": {
+    "accessKey": "commerce_marketplace",
+    "enabledByDefault": false,
+    "masterOnly": false
+  },
+  "data": {
+    "prismaModels": [],
+    "sqliteTables": [],
+    "appSettingsKeys": [],
+    "uploadPaths": []
+  },
+  "capabilities": {
+    "csvExport": false,
+    "csvImport": false,
+    "completeBackup": false,
+    "moduleRestore": false
+  },
+  "dependencies": {
+    "moduleKeys": ["website"]
+  },
+  "package": {
+    "routeEntry": "package/routes/marketplace.ts",
+    "componentEntry": "package/components/Marketplace.tsx",
+    "backupStrategy": "host-managed",
+    "rollbackStrategy": "disable-only",
+    "requiredEnv": [],
+    "postInstallChecks": [
+      "Open /dashboard/storefront",
+      "Create a draft product with multiple images",
+      "Publish the product and confirm it appears at /marketplace",
+      "Archive the product and confirm it is removed from the public catalog",
+      "Confirm disabling the module preserves product and image data"
+    ],
+    "healthChecks": [
+      {
+        "key": "dashboard",
+        "type": "dashboard-route"
+      },
+      {
+        "key": "dashboard-runtime",
+        "type": "runtime-asset",
+        "path": "package/web/app.js"
+      },
+      {
+        "key": "public-runtime",
+        "type": "runtime-asset",
+        "path": "package/web/public.js"
+      }
+    ],
+    "publisher": "SkaiCloud Network LLC",
+    "checksum": "sha256:pending",
+    "signature": "package/SIGNATURE.txt",
+    "runtime": {
+      "mode": "sandboxed-iframe",
+      "dashboardEntry": "package/web/dashboard.html",
+      "publicEntry": "package/web/public.html",
+      "publicPath": "/marketplace",
+      "publicLabel": "Marketplace",
+      "showInPublicNavigation": true,
+      "dataResources": [
+        {
+          "key": "products",
+          "publicRead": true,
+          "maxRecords": 5000
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="light">
+    <title>Storefront</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="dashboard-body">
+    <main class="dashboard-shell">
+      <header class="workspace-header">
+        <div>
+          <p class="eyebrow">Commerce</p>
+          <h1>Storefront</h1>
+        </div>
+        <div class="header-actions">
+          <span id="save-state" class="save-state">Ready</span>
+          <button id="new-product" class="button primary" type="button"><span aria-hidden="true">+</span> New product</button>
+        </div>
+      </header>
+
+      <section class="stats" aria-label="Product summary">
+        <div><span>Total products</span><strong id="stat-total">0</strong></div>
+        <div><span>Published</span><strong id="stat-published">0</strong></div>
+        <div><span>Drafts</span><strong id="stat-drafts">0</strong></div>
+        <div><span>Low stock</span><strong id="stat-low">0</strong></div>
+      </section>
+
+      <div class="workspace-grid">
+        <section class="product-panel" aria-label="Products">
+          <div class="panel-toolbar">
+            <label class="search-field"><span aria-hidden="true">⌕</span><input id="product-search" type="search" placeholder="Search products or SKU"></label>
+            <select id="status-filter" aria-label="Filter products by status">
+              <option value="active">Active</option>
+              <option value="all">All products</option>
+              <option value="published">Published</option>
+              <option value="draft">Drafts</option>
+              <option value="archived">Archived</option>
+            </select>
+          </div>
+          <div id="product-list" class="product-list" aria-live="polite"></div>
+        </section>
+
+        <section class="editor-panel" aria-labelledby="editor-title">
+          <div id="editor-empty" class="empty-editor">
+            <div class="empty-icon" aria-hidden="true">+</div>
+            <h2>Add your first product</h2>
+            <p>Create a draft, add product images, then publish it to your website.</p>
+            <button id="empty-new-product" class="button primary" type="button">New product</button>
+          </div>
+
+          <form id="product-form" class="product-form hidden">
+            <div class="editor-heading">
+              <div>
+                <p class="eyebrow">Product record</p>
+                <h2 id="editor-title">New product</h2>
+              </div>
+              <button id="close-editor" class="icon-button" type="button" title="Close editor" aria-label="Close editor">×</button>
+            </div>
+
+            <div class="field-grid two">
+              <label class="field"><span>Name</span><input id="name" maxlength="120" required></label>
+              <label class="field"><span>SKU</span><input id="sku" maxlength="80" required></label>
+            </div>
+            <label class="field"><span>Description</span><textarea id="description" rows="5" maxlength="4000" required></textarea></label>
+            <div class="field-grid three">
+              <label class="field"><span>Price</span><div class="money-input"><span>$</span><input id="price" type="number" min="0" step="0.01" required></div></label>
+              <label class="field"><span>Inventory</span><input id="inventory" type="number" min="0" step="1" required></label>
+              <label class="field"><span>Category</span><input id="category" maxlength="80" list="category-options" required></label>
+            </div>
+            <datalist id="category-options"></datalist>
+
+            <fieldset class="image-fieldset">
+              <legend>Product images</legend>
+              <label class="upload-zone" for="images">
+                <strong>Upload images</strong>
+                <span>JPG, PNG, WebP, or GIF · 8 MB each · up to 8 images</span>
+                <input id="images" type="file" accept="image/jpeg,image/png,image/webp,image/gif" multiple>
+              </label>
+              <div id="image-list" class="image-list"></div>
+            </fieldset>
+
+            <div class="publish-row">
+              <label class="switch"><input id="published" type="checkbox"><span></span><strong>Published</strong></label>
+              <label class="switch"><input id="featured" type="checkbox"><span></span><strong>Featured</strong></label>
+            </div>
+
+            <div class="editor-actions">
+              <button id="archive-product" class="button danger hidden" type="button">Archive</button>
+              <span class="action-spacer"></span>
+              <button id="cancel-edit" class="button secondary" type="button">Cancel</button>
+              <button class="button primary" type="submit">Save product</button>
+            </div>
+          </form>
+        </section>
+      </div>
+
+      <section class="preview-band" aria-labelledby="preview-title">
+        <div class="section-heading"><div><p class="eyebrow">Website preview</p><h2 id="preview-title">Marketplace</h2></div><span>/marketplace</span></div>
+        <div id="store-preview" class="preview-grid"></div>
+      </section>
+    </main>
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+    <script src="app.js"></script>
+  </body>
+</html>
